@@ -2,6 +2,12 @@ application:
   name: AuthServerDemo
 server:
   port: 9000
+  ssl:
+    enabled: false
+    key-store: file:keystore.p12
+    key-store-password: yourpassword
+    key-store-type: PKCS12
+    key-alias: youralias
 
 logging:
   level:
