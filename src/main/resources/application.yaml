@@ -43,18 +43,19 @@ spring:
               refresh-token-time-to-live: P1D
 
 test-users:
-  - username: adam
-    password: password
-    email: adam@example.com
-    first-name: Adam
-    last-name: Kowalski
-  - username: bogdan
-    password: password
-    email: bogdan@example.com
-    first-name: Bogdan
-    last-name: Nowak
-  - username: kamil
-    password: password
-    email: kamil@example.com
-    first-name: Kamil
-    last-name: Wiśniewski
+  users:
+    - username: adam
+      password: password
+      email: adam@example.com
+      first-name: Adam
+      last-name: Kowalski
+    - username: bogdan
+      password: password
+      email: bogdan@example.com
+      first-name: Bogdan
+      last-name: Nowak
+    - username: kamil
+      password: password
+      email: kamil@example.com
+      first-name: Kamil
+      last-name: Wiśniewski
