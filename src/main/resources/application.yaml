@@ -8,23 +8,31 @@ logging:
     org.springframework.security: trace
 
 spring:
+  security:
     oauth2:
       authorizationserver:
         client:
           mcp-test-server:
             registration:
-              client-id: "oidc-client"
-              client-secret: "{noop}secret"
+              client-id: "mcp-test-server"
+              client-secret: "{noop}secret"  # {noop} = plain text, for dev only!
               client-authentication-methods:
                 - "client_secret_basic"
+                - "client_secret_post"
               authorization-grant-types:
                 - "authorization_code"
                 - "refresh_token"
               redirect-uris:
-                - "http://127.0.0.1:8080/login/oauth2/code/oidc-client"
-              post-logout-redirect-uris:
-                - "http://127.0.0.1:8080/"
+                - "http://localhost:8080/authorized"
+                - "http://localhost:8080/login/oauth2/code/mcp-test-server"
               scopes:
                 - "openid"
                 - "profile"
-            require-authorization-consent: true
+                - "email"
+                - "mcp.server"
+                - "mcp.tools"
+            require-proof-key: false  # PKCE disabled for simplicity
+            token:
+              authorization-code-time-to-live: PT5M
+              access-token-time-to-live: PT15M
+              refresh-token-time-to-live: P1D
